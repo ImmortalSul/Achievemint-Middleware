@@ -1,0 +1,23 @@
+{
+  "name": "Achievement1176",
+  "description": "Achievement unlocked in Human Fall Flat",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/477160/Achievement1176.jpg",
+  "attributes": [
+    {
+      "trait_type": "Game",
+      "value": "Human Fall Flat"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2021-11-19T18:39:49.000Z"
+    },
+    {
+      "trait_type": "Rarity Percentage",
+      "value": "2.60%"
+    },
+    {
+      "trait_type": "Rarity Category",
+      "value": "Legendary"
+    }
+  ]
+}

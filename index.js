@@ -1,6 +1,8 @@
 import axios from "axios";
 import readline from "readline";
 import dotenv from "dotenv";
+import fs from "fs";
+import path from "path";
 
 dotenv.config();
 
@@ -12,7 +14,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("� Enter the Steam App ID: ", async (appId) => {
+rl.question("Enter the Steam App ID: ", async (appId) => {
   const PLAYER_ACHIEVEMENTS_URL = `https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/?key=${API_KEY}&steamid=${STEAM_ID}&appid=${appId}`;
   const GLOBAL_ACHIEVEMENTS_URL = `https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/?gameid=${appId}`;
 
@@ -39,9 +41,6 @@ rl.question("� Enter the Steam App ID: ", async (appId) => {
     const globalResponse = await axios.get(GLOBAL_ACHIEVEMENTS_URL);
     const globalData = globalResponse.data.achievementpercentages.achievements;
 
-    // Debugging: Check if globalData is coming in correctly
-    console.log("� Global Achievements Data:", globalData);
-
     // Create a map of global achievements for quick lookup
     const globalRarityMap = new Map();
     globalData.forEach((ach) =>
@@ -50,62 +49,54 @@ rl.question("� Enter the Steam App ID: ", async (appId) => {
 
     // Function to determine rarity category
     const getRarityCategory = (percent) => {
-      if (percent < 10) return "� Legendary";
-      if (percent < 30) return "⭐ Rare";
-      return "✅ Uncommon";
+      if (percent < 10) return "Legendary";
+      if (percent < 30) return "Rare";
+      return "Uncommon";
     };
 
-    // Map achievements with rarity percentages
-    const achievementsWithRarity = unlockedAchievements.map((achievement) => {
-      const apinameLower = achievement.apiname.toLowerCase(); // Normalize name
-      let rarityPercent = globalRarityMap.get(apinameLower);
+    // Directory for metadata output
+    const outputDir = path.join(process.cwd(), "metadata");
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir);
+    }
 
-      // Convert to a number with parseFloat. If invalid, default to 100.
-      rarityPercent = parseFloat(rarityPercent);
-      if (isNaN(rarityPercent)) {
-        rarityPercent = 100;
-      }
+    // Generate metadata for each achievement
+    unlockedAchievements.forEach((achievement) => {
+      const apinameLower = achievement.apiname.toLowerCase();
+      let rarityPercent = parseFloat(globalRarityMap.get(apinameLower)) || 100;
 
-      return {
+      const metadata = {
         name: achievement.apiname,
-        unlockDate: new Date(achievement.unlocktime * 1000).toLocaleString(),
-        rarityPercent,
-        rarityCategory: getRarityCategory(rarityPercent),
+        description: `Achievement unlocked in ${playerData.gameName}`,
+        image: `https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/${appId}/${achievement.apiname}.jpg`, // You might need to fetch the actual image URL
+        attributes: [
+          { trait_type: "Game", value: playerData.gameName },
+          {
+            trait_type: "Unlock Date",
+            value: new Date(achievement.unlocktime * 1000).toISOString(),
+          },
+          {
+            trait_type: "Rarity Percentage",
+            value: `${rarityPercent.toFixed(2)}%`,
+          },
+          {
+            trait_type: "Rarity Category",
+            value: getRarityCategory(rarityPercent),
+          },
+        ],
       };
+
+      // Save metadata as JSON
+      const metadataFilePath = path.join(
+        outputDir,
+        `${achievement.apiname}.json`
+      );
+      fs.writeFileSync(metadataFilePath, JSON.stringify(metadata, null, 2));
+
+      console.log(`� Metadata saved: ${metadataFilePath}`);
     });
 
-    // Sort achievements by rarity (lowest % first)
-    achievementsWithRarity.sort((a, b) => a.rarityPercent - b.rarityPercent);
-
-    // Count achievements by rarity category
-    const rarityCounts = {
-      Legendary: 0,
-      Rare: 0,
-      Uncommon: 0,
-    };
-
-    // Display sorted achievements
-    achievementsWithRarity.forEach(
-      ({ name, unlockDate, rarityPercent, rarityCategory }) => {
-        // Remove emoji for counting category key
-        const categoryKey = rarityCategory
-          .replace("� ", "")
-          .replace("⭐ ", "")
-          .replace("✅ ", "");
-        rarityCounts[categoryKey]++;
-        console.log(
-          `- ${name} � Unlocked on ${unlockDate} | ${rarityCategory} (${rarityPercent.toFixed(
-            2
-          )}%)`
-        );
-      }
-    );
-
-    // Print rarity statistics
-    console.log("\n� Rarity Summary:");
-    console.log(`� Legendary (<10%): ${rarityCounts.Legendary}`);
-    console.log(`⭐ Rare (10% - 30%): ${rarityCounts.Rare}`);
-    console.log(`✅ Uncommon (>30%): ${rarityCounts.Uncommon}`);
+    console.log("\n✅ All achievement metadata files generated successfully!");
   } catch (error) {
     console.error(
       "❌ Error fetching achievements:",

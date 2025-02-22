@@ -1,0 +1,23 @@
+{
+  "name": "IncAchievement003",
+  "description": "Achievement unlocked in Human Fall Flat",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/477160/IncAchievement003.jpg",
+  "attributes": [
+    {
+      "trait_type": "Game",
+      "value": "Human Fall Flat"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2021-11-20T19:31:47.000Z"
+    },
+    {
+      "trait_type": "Rarity Percentage",
+      "value": "36.30%"
+    },
+    {
+      "trait_type": "Rarity Category",
+      "value": "Uncommon"
+    }
+  ]
+}
