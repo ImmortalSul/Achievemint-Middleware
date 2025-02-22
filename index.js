@@ -35,7 +35,7 @@ rl.question("Enter the Steam App ID: ", async (appId) => {
     }
 
     console.log(`\n� Game: ${playerData.gameName}`);
-    console.log("✅ Unlocked Achievements (Sorted by Rarity):");
+    console.log("✅ Unlocked Achievements (Generating Metadata)...");
 
     // Fetch global achievement percentages
     const globalResponse = await axios.get(GLOBAL_ACHIEVEMENTS_URL);
@@ -60,43 +60,43 @@ rl.question("Enter the Steam App ID: ", async (appId) => {
       fs.mkdirSync(outputDir);
     }
 
-    // Generate metadata for each achievement
+    // Generate metadata for each unlocked achievement
     unlockedAchievements.forEach((achievement) => {
-      const apinameLower = achievement.apiname.toLowerCase();
-      let rarityPercent = parseFloat(globalRarityMap.get(apinameLower)) || 100;
+      const apinameLower = achievement.apiname.toLowerCase(); // Normalize name
+      let rarityPercent = globalRarityMap.get(apinameLower);
 
+      // Convert to a number with parseFloat. If invalid, default to 100.
+      rarityPercent = parseFloat(rarityPercent);
+      if (isNaN(rarityPercent)) {
+        rarityPercent = 100;
+      }
+
+      const rarityCategory = getRarityCategory(rarityPercent);
+      const unlockDate = new Date(achievement.unlocktime * 1000).toISOString();
+
+      // Metadata JSON
       const metadata = {
         name: achievement.apiname,
-        description: `Achievement unlocked in ${playerData.gameName}`,
-        image: `https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/${appId}/${achievement.apiname}.jpg`, // You might need to fetch the actual image URL
+        description: `An achievement from ${playerData.gameName}.`,
+        image: "https://example.com/placeholder.png", // Replace later
         attributes: [
-          { trait_type: "Game", value: playerData.gameName },
+          { trait_type: "Rarity", value: rarityCategory },
+          { trait_type: "Unlock Date", value: unlockDate },
           {
-            trait_type: "Unlock Date",
-            value: new Date(achievement.unlocktime * 1000).toISOString(),
-          },
-          {
-            trait_type: "Rarity Percentage",
+            trait_type: "Global Unlock Rate",
             value: `${rarityPercent.toFixed(2)}%`,
-          },
-          {
-            trait_type: "Rarity Category",
-            value: getRarityCategory(rarityPercent),
           },
         ],
       };
 
-      // Save metadata as JSON
-      const metadataFilePath = path.join(
-        outputDir,
-        `${achievement.apiname}.json`
-      );
-      fs.writeFileSync(metadataFilePath, JSON.stringify(metadata, null, 2));
+      // Save metadata file
+      const filePath = path.join(outputDir, `${achievement.apiname}.json`);
+      fs.writeFileSync(filePath, JSON.stringify(metadata, null, 2));
 
-      console.log(`� Metadata saved: ${metadataFilePath}`);
+      console.log(`� Metadata saved: ${achievement.apiname}.json`);
     });
 
-    console.log("\n✅ All achievement metadata files generated successfully!");
+    console.log("\n✅ All metadata files generated successfully!");
   } catch (error) {
     console.error(
       "❌ Error fetching achievements:",
