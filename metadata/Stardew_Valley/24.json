@@ -1,0 +1,19 @@
+{
+  "name": "24",
+  "description": "Catch 10 different fish.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/e3c6269d906e909415d31d5b7962166c0951509d.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-08-15T13:56:55.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "57.80%"
+    }
+  ]
+}

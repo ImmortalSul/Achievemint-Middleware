@@ -1,0 +1,19 @@
+{
+  "name": "Achievement_TheBottom",
+  "description": "Reach the lowest level of the mines.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/d013c91bc0788fd047be29bf04447c4ada43b57c.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-09-28T16:21:31.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "43.10%"
+    }
+  ]
+}

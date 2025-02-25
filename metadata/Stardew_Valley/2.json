@@ -1,0 +1,19 @@
+{
+  "name": "2",
+  "description": "Earn 250,000g",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/b81de530e1de874a4add0b690d372df3ffc44ea2.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-03-26T12:19:23.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "44.00%"
+    }
+  ]
+}

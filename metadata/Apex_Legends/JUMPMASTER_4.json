@@ -1,0 +1,19 @@
+{
+  "name": "JUMPMASTER_4",
+  "description": "An achievement from Apex Legends.",
+  "image": "https://example.com/placeholder.png",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-09-17T06:14:26.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "47.60%"
+    }
+  ]
+}

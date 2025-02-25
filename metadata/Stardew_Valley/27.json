@@ -1,0 +1,19 @@
+{
+  "name": "27",
+  "description": "Catch 100 fish.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/cdc37596680321cfc1f5aef5f6c02e8384d07d62.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-09-19T15:40:17.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "49.50%"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "15",
+  "description": "Cook 10 different recipes.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/a3409b4511b671ee8ecaedd6dfcd5c80f99d7432.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-10-02T15:29:25.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "12.40%"
+    }
+  ]
+}

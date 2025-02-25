@@ -1,0 +1,19 @@
+{
+  "name": "28",
+  "description": "Donate 40 different items to the museum.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/2c8433424f9e87d55b64b1ddbdcef1ea75d36d4c.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-09-19T16:48:37.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "44.70%"
+    }
+  ]
+}

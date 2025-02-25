@@ -1,0 +1,19 @@
+{
+  "name": "6",
+  "description": "Reach a 5-heart friend level with someone.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/73b81a2c4c59bfdf3d87bab03cb2932b4953fe18.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-03-20T15:35:36.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "41.10%"
+    }
+  ]
+}

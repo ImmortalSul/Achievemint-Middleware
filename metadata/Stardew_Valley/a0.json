@@ -1,0 +1,19 @@
+{
+  "name": "a0",
+  "description": "Earn 15,000g",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/dac82a85ceb1493bb2155d41890b4a6099f5eaa5.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-03-12T18:40:09.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "63.60%"
+    }
+  ]
+}

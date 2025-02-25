@@ -1,0 +1,19 @@
+{
+  "name": "25",
+  "description": "Catch 24 different fish.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/2400541f7661159b571cf767db7af4bd1125341a.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-09-28T07:40:44.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "42.50%"
+    }
+  ]
+}

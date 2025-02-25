@@ -1,0 +1,19 @@
+{
+  "name": "20",
+  "description": "Craft 15 different items.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/354c8650487d1359012892dd35ac23c7d83f4266.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-09-28T11:02:55.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "38.10%"
+    }
+  ]
+}

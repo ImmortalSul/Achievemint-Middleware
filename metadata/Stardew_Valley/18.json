@@ -1,0 +1,19 @@
+{
+  "name": "18",
+  "description": "Upgrade your house.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/67f2c064873468b80c57218f0992c15f7d2fe83e.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-10-01T09:57:24.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "43.80%"
+    }
+  ]
+}

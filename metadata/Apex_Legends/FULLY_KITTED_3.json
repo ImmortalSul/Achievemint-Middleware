@@ -1,0 +1,19 @@
+{
+  "name": "FULLY_KITTED_3",
+  "description": "An achievement from Apex Legends.",
+  "image": "https://example.com/placeholder.png",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-09-17T13:12:34.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "40.60%"
+    }
+  ]
+}

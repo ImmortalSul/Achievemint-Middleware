@@ -1,0 +1,19 @@
+{
+  "name": "Achievement_LocalLegend",
+  "description": "Restore the Pelican Town Community Center.",
+  "image": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/413150/fdd74e80dbb3a7f2581461ab160ffd34ad000990.jpg",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Unlock Date",
+      "value": "2023-10-05T18:14:00.000Z"
+    },
+    {
+      "trait_type": "Global Unlock Rate",
+      "value": "21.50%"
+    }
+  ]
+}
